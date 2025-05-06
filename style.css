@@ -1,0 +1,31 @@
+body {
+   background: rgb(255, 255, 255);
+   text-align: center;
+   color: rgb(0, 0, 0);
+   font-family: monospace;
+}
+
+h1 {
+   color: #3e7122;
+   font-family: Helvetica;
+}
+
+p {
+   color: #c9360a;
+   font-family: Helvetica;
+}
+
+.overlayText {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 32px;
+   color: white;
+   padding: 20px;
+   border-radius: 10px;
+   display: none;
+   font-family: Helvetica;
+   font-weight: bold;
+
+}

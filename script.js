@@ -28,17 +28,6 @@ function setup() {
     statusP.style("color", "white");
     statusP.style("font-size", "16px");
 
-    // Make overlayText fade out after 10 seconds
-    let overlayText = document.getElementById("overlayText");
-    if (overlayText) {
-        overlayText.classList.add("fade-out");
-
-        // Optional: fully hide it after animation
-        setTimeout(() => {
-            overlayText.style.display = "none";
-        }, 10000);
-    }
-
     // Start the webcam capture
     video = createCapture(VIDEO, function () {
         video.size(900, 650);
@@ -114,15 +103,22 @@ function gotFaces(results) {
     faces = results;
 }
 
-// Save current frame
+// Save current frame and trigger fade-out
 function saveImage() {
     let img = get();
     imagesGallery.push(img);
     img.save("captured-image", "jpg");
 
-    // Optional: show a message if you have overlay text setup
+    // Trigger fade-out when taking photo
     let overlayText = document.getElementById("overlayText");
     if (overlayText) {
-        overlayText.style.display = "block";
+        overlayText.style.display = "block";  // ensure it's visible before fading
+        overlayText.classList.add("fade-out");
+
+        // Fully hide after 20 seconds
+        setTimeout(() => {
+            overlayText.style.display = "none";
+            overlayText.classList.remove("fade-out");  // reset class if you want to reuse
+        }, 20000);
     }
 }

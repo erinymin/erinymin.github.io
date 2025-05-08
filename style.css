@@ -36,5 +36,5 @@ p {
 }
 
 .fade-out {
-   animation: fadeOut 10s forwards;
+   animation: fadeOut 20s forwards;
 }

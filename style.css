@@ -15,6 +15,11 @@ p {
    font-family: Helvetica;
 }
 
+@keyframes fadeOut {
+   from { opacity: 1; }
+   to { opacity: 0; }
+}
+
 .overlayText {
    position: fixed;
    top: 50%;
@@ -24,8 +29,13 @@ p {
    color: white;
    padding: 20px;
    border-radius: 10px;
-   display: none;
+   display: block; 
    font-family: Helvetica;
    font-weight: bold;
-
+   opacity: 1;
 }
+
+.fade-out {
+   animation: fadeOut 10s forwards;
+}
+

@@ -126,3 +126,13 @@ function saveImage() {
     overlayText.style.display = "block";
   }
 }
+
+// Make overlayText fade out after 10 seconds
+let overlayText = document.getElementById("overlayText");
+if (overlayText) {
+  overlayText.style.display = "block";  // make sure it's visible
+
+  // Start the fade-out animation immediately
+  overlayText.classList.add("fade-out");
+}
+

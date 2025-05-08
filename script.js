@@ -124,6 +124,6 @@ function saveImage() {
         setTimeout(() => {
             overlayText.style.display = "none";
             overlayText.classList.remove("fade-out");
-        }, 40000);
+        }, 60000);
     }
 }

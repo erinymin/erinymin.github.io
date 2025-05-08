@@ -24,10 +24,10 @@ p {
    color: white;
    padding: 20px;
    border-radius: 10px;
-   display: none;
+   display: block;  /* <- change from none to block so it's visible */
    font-family: Helvetica;
    font-weight: bold;
-
+   opacity: 1;  /* ensure it starts visible */
 }
 
 @keyframes fadeOut {

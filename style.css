@@ -24,7 +24,7 @@ p {
    color: white;
    padding: 20px;
    border-radius: 10px;
-   display: block;  /* make sure it starts visible */
+   display: none;  /* start hidden */
    font-family: Helvetica;
    font-weight: bold;
    opacity: 1;

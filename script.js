@@ -103,22 +103,27 @@ function gotFaces(results) {
     faces = results;
 }
 
-// Save current frame and trigger fade-out
+// Save current frame and show + fade-out text
 function saveImage() {
     let img = get();
     imagesGallery.push(img);
     img.save("captured-image", "jpg");
 
-    // Trigger fade-out when taking photo
+    // Get overlay text element
     let overlayText = document.getElementById("overlayText");
     if (overlayText) {
-        overlayText.style.display = "block";  // ensure it's visible before fading
+        overlayText.style.display = "block";  // show it
+        overlayText.style.opacity = "1";      // reset opacity in case of re-click
+        overlayText.classList.remove("fade-out"); // reset any old animation
+
+        // Trigger fade-out animation
+        void overlayText.offsetWidth;  // force reflow to restart animation
         overlayText.classList.add("fade-out");
 
         // Fully hide after 20 seconds
         setTimeout(() => {
             overlayText.style.display = "none";
-            overlayText.classList.remove("fade-out");  // reset class if you want to reuse
+            overlayText.classList.remove("fade-out");
         }, 20000);
     }
 }

@@ -1,40 +1,152 @@
 body {
-   background: rgb(255, 255, 255);
-   text-align: center;
-   color: rgb(0, 0, 0);
-   font-family: monospace;
+    background: #1b6b59;
+    font-family: Courier;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ .wrapper {
+    width: 90%;
+    margin: 0 auto;
+ }
+ /*Heading*/
+ a {
+    color: #cea6bb;
+    text-decoration: none;
+ }
+ h1 {
+    color: #cea6bb;
+    font-family: Courier;
+ }
+
+h2 {
+      color: #cea6bb;
+      font-family: Courier;
+ }
+ p {
+    color: #cea6bb;
+ }
+ p.smaller {
+    font-size: 5px;
+ }
+ img.small {
+    width: 100px;
+ }
+ img.medium {
+    width: 300px;
+ }
+ img.large {
+    width: 600px;
+ }
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+.grid .item {
+    width: 100%;
+    position: relative;
+}
+.grid .item img {
+    width: 100%;
+}
+.grid .item .text {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-h1 {
-   color: #3e7122;
-   font-family: Helvetica;
-}
 
-p {
-   color: #c9360a;
-   font-family: Helvetica;
-}
+.flip-card {
+    background-color: #1b6b59;
+    width: 300px;
+    height: 300px;
+    border: 0px;
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: transparent;
+    color: black;
+  }
+  .flip-card-front img {
+   max-width: 100%;
+   max-height: 100%;
+   width: auto !important;
+  }
+  /* Style the back side */
+  .flip-card-back {
+    background-color: #1b6b59;
+    color: #1b6b59;
+    transform: rotateY(180deg);
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+  }
 
-.overlayText {
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   font-size: 32px;
-   color: white;
+  .nav-buttons {
+   display: flex;
+   justify-content: space-between; /* Positions buttons at left & right */
    padding: 20px;
-   border-radius: 10px;
-   display: none;  /* start hidden */
-   font-family: Helvetica;
+   position: relative;
+   top: 10px;
+   left: 0;
+   right: 0;
+   width: 100%;
    font-weight: bold;
-   opacity: 1;
 }
 
-@keyframes fadeOut {
-   from { opacity: 1; }
-   to { opacity: 0; }
+.btn {
+   text-decoration: none;
+   font-size: 18px;
+   padding: 10px 20px;
+   background-color: transparent;
+   color: #cea6bb;
+   border-radius: 5px;
+   transition: 0.3s, color 0.3s;
+   font-weight: bold;
 }
 
-.fade-out {
-   animation: fadeOut 60s forwards;
+.btn:hover {
+   color: white;
+}
+
+.btn:hover {
+   color: white;
+}
+
+/* Instagram Button Specific Styling */
+.insta-btn {
+   border-color: #cea6bb; /* Instagram pink */
+   color: #cea6bb;
+   font-weight: bold;
+}
+
+.insta-btn:hover {
+   color: white;
 }

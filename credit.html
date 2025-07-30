@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Erin Min 1st Exhibition</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Helvetica;
+      background-color: white;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-sizing: border-box;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .navbar-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar-center a {
+      display: inline-block;
+      height: 40px;
+    }
+
+    .navbar-center img.logo {
+      height: 40px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .navbar-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      gap: 20px;
+    }
+
+    .navbar h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-btn {
+      background: none;
+      border: none;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px;
+      color: #333;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+      padding: 10px 0;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .threewrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      text-align: center;
+      z-index: 2;
+      max-width: 80%;
+    }
+
+    .text-overlay h1 {
+      font-weight: bold;
+      font-size: 28px;
+      margin: 0 0 10px 0;
+    }
+
+    .text-overlay h2 {
+      font-weight: normal;
+      font-size: 16px;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .text-overlay h2 a {
+      color: #333;
+      text-decoration: underline;
+    }
+
+    .text-overlay h2 a:hover {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-section">
+      <h1>Credit</h1>
+    </div>
+
+    <div class="navbar-center">
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+    </div>
+
+    <div class="navbar-right">
+      <div class="dropdown">
+        <button class="dropdown-btn">About ▾</button>
+        <div class="dropdown-content">
+          <a href="oxxy444.html">oxxy444</a>
+          <a href="about.html">The Artist</a>
+          <a href="exhibition.html">The Exhibition</a>
+          <a href="photos.html">Photo Gallery</a>
+          <a href="credit.html">Credit</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropdown-btn">Artworks ▾</button>
+        <div class="dropdown-content">
+          <a href="1.html">"My YNHD"</a>
+          <a href="2.html">"i love u silence"</a>
+          <a href="3.html">"good job!"</a>
+          <a href="4.html">"things that help me sleep a little better"</a>
+          <a href="5.html">"mines is better than yours"</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="threewrapper"></div>
+
+  <div class="text-overlay">
+    <h1>Contact</h1>
+    <h2>
+      Thank you to oxxy444 and the team for making this all happen. <br><br>
+      Thank you for all the visitors who came to support and make this experience meaningful. <br><br>
+      Please visit 
+      <a href="https://www.instagram.com/oxxy444" target="_blank">@oxxy444</a> 
+      and 
+      <a href="https://www.instagram.com/yyminy" target="_blank">@yyminy</a> 
+      for more content.
+    </h2>
+  </div>
+</body>
+</html>

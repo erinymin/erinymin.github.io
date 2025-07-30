@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Erin Min 1st Exhibition</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Helvetica;
+      background-color: white;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-sizing: border-box;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .navbar-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar-center a {
+      display: inline-block;
+      height: 40px;
+    }
+
+    .navbar-center img.logo {
+      height: 40px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .navbar-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      gap: 20px;
+    }
+
+    .navbar h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-btn {
+      background: none;
+      border: none;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px;
+      color: #333;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+      padding: 10px 0;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .threewrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      text-align: center;
+      z-index: 2;
+      max-width: 80%;
+    }
+
+    .text-overlay h1 {
+      font-weight: bold;
+      font-size: 28px;
+      margin: 0 0 10px 0;
+    }
+
+    .text-overlay h2 {
+      font-weight: normal;
+      font-size: 16px;
+      margin: 0;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-section">
+      <h1>About the Artist</h1>
+    </div>
+
+    <div class="navbar-center">
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+    </div>
+
+    <div class="navbar-right">
+      <div class="dropdown">
+        <button class="dropdown-btn">About ▾</button>
+        <div class="dropdown-content">
+          <a href="oxxy444.html">oxxy444</a>
+          <a href="about.html">The Artist</a>
+          <a href="exhibition.html">The Exhibition</a>
+          <a href="photos.html">Photo Gallery</a>
+          <a href="credit.html">Credit</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropdown-btn">Artworks ▾</button>
+        <div class="dropdown-content">
+          <a href="1.html">"My YNHD"</a>
+          <a href="2.html">"i love u silence"</a>
+          <a href="3.html">"good job!"</a>
+          <a href="4.html">"things that help me sleep a little better"</a>
+          <a href="5.html">"mines is better than yours"</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="threewrapper"></div>
+
+  <div class="text-overlay">
+    <h1>About the Artist</h1>
+    <h2>       Erin Min is a graphic designer currently studying at the Rhode Island School of Design, concentrating on Computation, Technology, and Culture. Born in Los Angeles and raised between Seattle and South Korea, her work is deeply shaped by a cross-cultural perspective, striking a balance between emotional sensitivity and visual clarity.
+ <br></br>
+      Erin’s design approach values simplicity as a powerful tool: her work often embraces minimal forms, clean structure, and restrained palettes. Yet within that simplicity, she seeks to create work that is simple, striking, and sincere, leaving a lasting impression through thoughtful contrast, strong composition, and meaningful concept.
+ <br></br>
+      Her projects explore themes of identity, memory, and self-understanding, often using personal experience as a starting point. She sees design not only as a medium of expression but as a way to slow down, reflect, and connect more deeply with both herself and her audience. Erin continues to explore new creative paths with an open mind, always looking for ways to grow while staying true to the core of her visual language.</h2>
+  </div>
+</body>
+</html>

@@ -1,200 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Take a Pic!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sound</title>
   <style>
-    :root { --w: 900px; --h: 540px; }
-    * { box-sizing: border-box; }
+    @font-face {
+      font-family: 'Absans';
+      src: local('Absans'), url('Absans-Regular.woff2') format('woff2'),
+           url('Absans-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
 
     body {
       margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-image: url('web.jpeg');
-      background-size: cover;
-      background-position: center;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color: #ddd;
-    }
-
-    .container {
-      width: var(--w);
-      height: var(--h);
-      display: flex;
-      gap: 24px;
-    }
-
-    .panel {
-      flex: 1;
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mosaic-panel {
-      background: transparent;
-    }
-
-    .video-panel {
-      background: #222;
-      border-radius: 12px;
+      background: linear-gradient(135deg, #e8e7d5);
+      font-family: 'Absans';
+      color: #3f3f3d;
+      text-align: center;
       position: relative;
       overflow: hidden;
+      flex-direction: column;
     }
 
-    .video-panel video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .video-border {
-      content: "";
+    .aura {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('tab.png') center center / cover no-repeat;
-      pointer-events: none;
-      border-radius: 12px;
-      z-index: 5;
-    }
-
-    #mosaic {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    #status { display: none; }
-
-    #capture-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 100px;
-      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.5) 10%, rgba(255,255,255,0.1) 70%);
+      filter: blur(15px);
+      animation: aura-float 6s infinite ease-in-out;
       cursor: pointer;
-      z-index: 10;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes aura-float {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.1); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    .center-text { font-size: 34px; font-weight: bold; z-index: 2; }
+    .top-text { font-size: 18px; font-weight: bold; z-index: 2; }
+
+    .aura-text {
+      position: absolute;
+      color: #3f3f3d;
+      font-size: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      z-index: 5;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+
+    .aura-text.show {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Left fragmented mosaic -->
-    <div class="panel mosaic-panel">
-      <canvas id="mosaic"></canvas>
-      <div id="status">Loading…</div>
-    </div>
+  <div class="top-text">Click on the colors!</div>
+  <div class="center-text">What I hear everyday</div>
 
-    <!-- Right video panel with full border overlay -->
-    <div class="panel video-panel">
-      <video id="video" autoplay muted playsinline></video>
-      <div class="video-border"></div>
-    </div>
-  </div>
-
-  <img id="capture-btn" src="button.png" alt="Take Photo">
-
-  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
   <script>
-  (async function () {
-    const MODEL_URL = 'https://cdn.jsdelivr.net/gh/cgarciagl/face-api.js/weights/';
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('mosaic');
-    const ctx = canvas.getContext('2d');
-    let videoReady = false;
+    const dataSets = [
+      { date: "i love when it's quiet during midnight", color: "#c7dc8e", sound: "1.m4a" },
+      { date: "silence is my favorite part of my home", color: "#f6e98e", sound: "2.m4a" },
+      { date: "sometimes it gets loud because i live in between roads", color: "#99D2E9", sound: "3.m4a" },
+      { date: "i like overhearing conversations during the afternoon", color: "#c7dc8e", sound: "4.m4a" },
+      { date: "the birds get loud sometimes", color: "#f6e98e", sound: "5.m4a" },
+      { date: "i can hear the birds talking to eachother", color: "#c7dc8e", sound: "6.m4a" },
+      { date: "i hear firetrucks a lot since there is a station next to me", color: "#f6e98e", sound: "7.m4a" },
+      { date: "loud weekday's are not my favorite", color: "#99D2E9", sound: "8.m4a" },
+      { date: "sometimes the wind is loud", color: "#c7dc8e", sound: "9.m4a" },
+      { date: "i hear the leaves being walked on", color: "#99D2E9", sound: "10.m4a" }
+    ];
 
-    const boxBorderImg = new Image();
-    boxBorderImg.src = 'tab.png';
-    await new Promise(resolve => { boxBorderImg.onload = resolve; });
+    function createAuras() {
+      const container = document.body;
+      dataSets.forEach((data) => {
+        let auraSize = Math.random() * 100 + 60;
 
-    async function startCamera() {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      video.srcObject = stream;
-      return new Promise(resolve => {
-        video.onloadedmetadata = () => {
-          video.play();
-          videoReady = true;
-          canvas.width = video.videoWidth;
-          canvas.height = video.videoHeight;
-          resolve();
-        };
+        const aura = document.createElement("div");
+        aura.classList.add("aura");
+        aura.style.left = `${Math.random() * 90}vw`;
+        aura.style.top = `${Math.random() * 80}vh`;
+        aura.style.width = `${auraSize}px`;
+        aura.style.height = `${auraSize}px`;
+        aura.style.backgroundColor = data.color;
+
+        // create text element
+        const text = document.createElement("div");
+        text.classList.add("aura-text");
+        text.textContent = data.date;
+        container.appendChild(text);
+
+        aura.addEventListener("click", () => {
+          playSound(data.sound);
+          showText(aura, text);
+        });
+
+        container.appendChild(aura);
       });
     }
 
-    async function loadModels() {
-      await faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL);
-      await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
+    function playSound(src) {
+      const audio = new Audio(src);
+      audio.currentTime = 0;
+      audio.play();
     }
 
-    function drawFragmentedWindows(detection, landmarks) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const features = [
-        landmarks.getLeftEye(),
-        landmarks.getRightEye(),
-        landmarks.getNose(),
-        landmarks.getMouth()
-      ];
+    function showText(aura, text) {
+      const auraRect = aura.getBoundingClientRect();
+      text.style.left = `${auraRect.left + auraRect.width / 2}px`;
+      text.style.top = `${auraRect.top - 25}px`;
 
-      for (const feature of features) {
-        const xs = feature.map(p => p.x);
-        const ys = feature.map(p => p.y);
-        const minX = Math.min(...xs) - 20;
-        const minY = Math.min(...ys) - 20;
-        const maxX = Math.max(...xs) + 20;
-        const maxY = Math.max(...ys) + 20;
-        const width = maxX - minX;
-        const height = maxY - minY;
-
-        for (let i = 0; i < 15; i++) {
-          const offsetX = (Math.random() - 0.5) * 6;
-          const offsetY = (Math.random() - 0.5) * 6;
-          ctx.save();
-          ctx.translate(offsetX, offsetY);
-          ctx.drawImage(video, minX, minY, width, height, minX, minY, width, height);
-          ctx.drawImage(boxBorderImg, minX, minY, width, height);
-          ctx.restore();
-        }
-      }
+      text.classList.add("show");
+      setTimeout(() => {
+        text.classList.remove("show");
+      }, 4000); // ⏳ text stays visible for 4 seconds
     }
 
-    async function detectLoop() {
-      if (videoReady) {
-        const result = await faceapi
-          .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
-          .withFaceLandmarks();
-
-        if (result) {
-          drawFragmentedWindows(result.detection, result.landmarks);
-        } else {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
-      }
-      requestAnimationFrame(detectLoop);
-    }
-
-    await startCamera();
-    await loadModels();
-    detectLoop();
-
-    document.getElementById('capture-btn').addEventListener('click', () => {
-      const image = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = image;
-      link.download = 'fragmented_face.png';
-      link.click();
-    });
-  })();
+    createAuras();
   </script>
 </body>
 </html>

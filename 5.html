@@ -8,12 +8,12 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
       font-family: Helvetica;
+      background: white;
     }
 
     .navbar {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -30,9 +30,14 @@
 
     .navbar-section {
       flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
+    }
+
+    .navbar-section h1 {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+      font-style: italic
+
     }
 
     .navbar-center {
@@ -40,11 +45,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    .navbar-center a {
-      display: inline-block;
-      height: 40px;
     }
 
     .navbar-center img.logo {
@@ -62,11 +62,6 @@
       gap: 20px;
     }
 
-    .navbar h1 {
-      font-size: 20px;
-      margin: 0;
-    }
-
     .dropdown {
       position: relative;
     }
@@ -74,7 +69,6 @@
     .dropdown-btn {
       background: none;
       border: none;
-      font-weight: bold;
       font-size: 16px;
       cursor: pointer;
       padding: 10px;
@@ -110,12 +104,35 @@
     }
 
     .threewrapper {
-      width: 100%;
-      height: 100%;
+      width: 60%;
+      height: 90vh;
       position: absolute;
-      top: 0;
+      top: 80px;
       left: 0;
-      z-index: 1;
+    }
+
+    .text-wrapper {
+      width: 40%;
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      transform: translateY(-50%);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .text-wrapper h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-style: italic
+    }
+
+    .text-wrapper h2 {
+      font-size: 15px;
+      font-weight: normal;
+      line-height: 1.5;
+      margin: 0;
     }
   </style>
 
@@ -131,7 +148,7 @@
 <body>
   <div class="navbar">
     <div class="navbar-section">
-      <h1>Erin Min's 1st Exhibition</h1>
+      <h1>mines is better than yours</h1>
     </div>
 
     <div class="navbar-center">
@@ -163,8 +180,16 @@
     </div>
   </div>
 
-  <div class="threewrapper"></div>
+  <div class="threewrapper" id="three-container"></div>
 
-  <script type="module" src="main.js"></script>
+  <div class="text-wrapper">
+    <h1>mines is better than yours</h1>
+    <h2>
+ “mine is better than yours” explores the idea of possession, not as ownership of a physical object, but as a claim to meaning, identity, and belonging. This work investigates how something as abstract as a feeling or idea can be held, advocated. <br><br>
+
+The simple typography asserts presence; the restrained forms and the familiar shape of the heart becomes a vessel for this emotional ownership, offering a symbol that is both universal and intimate. Every design element, typography, minimal forms, and the deliberate use of negative space, is chosen to reflect the quiet intensity of this form of possession.</h2>
+  </div>
+
+  <script type="module" src="5.js"></script>
 </body>
 </html>

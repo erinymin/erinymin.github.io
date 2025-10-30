@@ -10,6 +10,7 @@
       height: 100%;
       overflow: hidden;
       font-family: Helvetica;
+      background-color: white;
     }
 
     .navbar {
@@ -117,21 +118,35 @@
       left: 0;
       z-index: 1;
     }
-  </style>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
-      }
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      text-align: center;
+      z-index: 2;
+      max-width: 80%;
     }
-  </script>
+
+    .text-overlay h1 {
+      font-weight: bold;
+      font-size: 28px;
+      margin: 0 0 10px 0;
+    }
+
+    .text-overlay h2 {
+      font-weight: normal;
+      font-size: 16px;
+      margin: 0;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
   <div class="navbar">
     <div class="navbar-section">
-      <h1>Erin Min's 1st Exhibition</h1>
+      <h1>About the Exhibtion</h1>
     </div>
 
     <div class="navbar-center">
@@ -165,6 +180,12 @@
 
   <div class="threewrapper"></div>
 
-  <script type="module" src="main.js"></script>
+  <div class="text-overlay">
+    <h1>About the Exhibition</h1>
+    <h2>“MBFU” which stands for “Me Before You” is a body of work that explores the artist’s rediscovering visual identity through graphic design. This exhibition is a reflection, a way of finding and refining a personal style through contrast, experimentation, and reflection. 
+    <br></br>
+By transforming 2D graphic design pieces into 3D box structures, the work moves beyond the static and into the physical, creating a spatial and tactile experience. These sculptural forms invite viewers to navigate the space, allowing the pieces to interact with their surroundings and with each other. The manipulation of space becomes part of the storytelling, turning the exhibition into a landscape of layered memories and visual language. 
+<br></br>Ultimately, “MBFU” is about reclaiming one’s voice through design. It balances the intuitive energy of the past with the clarity and structure learned in the present. In doing so, the exhibition becomes a means of locating the artist’s style within a physical and emotional space, recontextualizing the past to speak more confidently in the present.    <br></br></h2>
+  </div>
 </body>
 </html>

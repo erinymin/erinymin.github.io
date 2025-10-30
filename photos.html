@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>MBFU: The Digital Experience</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
       font-family: Helvetica;
+      background-color: #fdfdfd;
     }
 
     .navbar {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -109,40 +109,84 @@
       display: block;
     }
 
-    .threewrapper {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
+    .gallery-container {
+      max-width: 1200px;
+      margin: 100px auto 40px;
+      padding: 0 20px;
     }
-  </style>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+    .gallery-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .featured-video {
+      width: 100%;
+      max-height: 600px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery img,
+    .gallery video {
+      width: calc(33.333% - 20px);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      max-height: 300px;
+    }
+
+    .gallery img:hover,
+    .gallery video:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .gallery img,
+      .gallery video {
+        width: calc(50% - 20px);
       }
     }
-  </script>
+
+    @media (max-width: 480px) {
+      .gallery img,
+      .gallery video {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="navbar">
     <div class="navbar-section">
-      <h1>Erin Min's 1st Exhibition</h1>
+      <h1>Photo Gallery</h1>
     </div>
 
     <div class="navbar-center">
-      <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+      <a href="index.html"><img src="logo.png" alt="Logo" class="logo" /></a>
     </div>
 
     <div class="navbar-right">
       <div class="dropdown">
         <button class="dropdown-btn">About ▾</button>
         <div class="dropdown-content">
-          <a href="oxxy444.html">oxxy444</a>
+          <a href="oxxy444.html">Oxxy444</a>
           <a href="about.html">The Artist</a>
           <a href="exhibition.html">The Exhibition</a>
           <a href="photos.html">Photo Gallery</a>
@@ -157,14 +201,37 @@
           <a href="2.html">"i love u silence"</a>
           <a href="3.html">"good job!"</a>
           <a href="4.html">"things that help me sleep a little better"</a>
-          <a href="5.html">"mines is better than yours"</a>
+          <a href="5.html">"mine is better than yours"</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="threewrapper"></div>
+  <div class="gallery-container">
 
-  <script type="module" src="main.js"></script>
+    <video class="featured-video" controls>
+      <source src="video1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="gallery">
+
+      <img src="image1.jpg" alt="Artwork 1">
+      <img src="image2.jpg" alt="Artwork 2">
+      <img src="image3.jpg" alt="Artwork 3">
+      <img src="image4.jpg" alt="Artwork 4">
+      <img src="image5.jpg" alt="Artwork 5">
+      <img src="image6.jpg" alt="Artwork 6">
+      <img src="image7.jpg" alt="Artwork 7">
+      <img src="image8.jpg" alt="Artwork 8">
+      <img src="image9.jpg" alt="Artwork 9">
+      <img src="image10.jpg" alt="Artwork 10">
+      <img src="image11.jpg" alt="Artwork 11">
+      <img src="image12.jpg" alt="Artwork 12">
+      <img src="image13.jpg" alt="Artwork 13">
+      <img src="image14.jpg" alt="Artwork 14">
+      <img src="image15.jpg" alt="Artwork 15">
+    </div>
+  </div>
 </body>
 </html>

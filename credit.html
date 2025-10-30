@@ -10,6 +10,7 @@
       height: 100%;
       overflow: hidden;
       font-family: Helvetica;
+      background-color: white;
     }
 
     .navbar {
@@ -117,21 +118,44 @@
       left: 0;
       z-index: 1;
     }
-  </style>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
-      }
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      text-align: center;
+      z-index: 2;
+      max-width: 80%;
     }
-  </script>
+
+    .text-overlay h1 {
+      font-weight: bold;
+      font-size: 28px;
+      margin: 0 0 10px 0;
+    }
+
+    .text-overlay h2 {
+      font-weight: normal;
+      font-size: 16px;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .text-overlay h2 a {
+      color: #333;
+      text-decoration: underline;
+    }
+
+    .text-overlay h2 a:hover {
+      color: #555;
+    }
+  </style>
 </head>
 <body>
   <div class="navbar">
     <div class="navbar-section">
-      <h1>Erin Min's 1st Exhibition</h1>
+      <h1>Credit</h1>
     </div>
 
     <div class="navbar-center">
@@ -165,6 +189,17 @@
 
   <div class="threewrapper"></div>
 
-  <script type="module" src="main.js"></script>
+  <div class="text-overlay">
+    <h1>Credits</h1>
+    <h2>
+      Thank you to oxxy444 and the team for making this all happen. <br><br>
+      Thank you for all the visitors who came to support and make this experience meaningful. <br><br>
+      Please visit 
+      <a href="https://www.instagram.com/oxxy444" target="_blank">@oxxy444</a> 
+      and 
+      <a href="https://www.instagram.com/yyminy" target="_blank">@yyminy</a> 
+      for more content.
+    </h2>
+  </div>
 </body>
 </html>

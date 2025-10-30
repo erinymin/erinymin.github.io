@@ -8,12 +8,12 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
       font-family: Helvetica;
+      background: white;
     }
 
     .navbar {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -30,9 +30,13 @@
 
     .navbar-section {
       flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
+    }
+
+    .navbar-section h1 {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+      font-style: italic
     }
 
     .navbar-center {
@@ -40,11 +44,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    .navbar-center a {
-      display: inline-block;
-      height: 40px;
     }
 
     .navbar-center img.logo {
@@ -62,11 +61,6 @@
       gap: 20px;
     }
 
-    .navbar h1 {
-      font-size: 20px;
-      margin: 0;
-    }
-
     .dropdown {
       position: relative;
     }
@@ -74,7 +68,6 @@
     .dropdown-btn {
       background: none;
       border: none;
-      font-weight: bold;
       font-size: 16px;
       cursor: pointer;
       padding: 10px;
@@ -110,12 +103,35 @@
     }
 
     .threewrapper {
-      width: 100%;
-      height: 100%;
+      width: 60%;
+      height: 90vh;
       position: absolute;
-      top: 0;
+      top: 80px;
       left: 0;
-      z-index: 1;
+    }
+
+    .text-wrapper {
+      width: 40%;
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      transform: translateY(-50%);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .text-wrapper h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-style: italic
+    }
+
+    .text-wrapper h2 {
+      font-size: 15px;
+      font-weight: normal;
+      line-height: 1.5;
+      margin: 0;
     }
   </style>
 
@@ -131,7 +147,7 @@
 <body>
   <div class="navbar">
     <div class="navbar-section">
-      <h1>Erin Min's 1st Exhibition</h1>
+      <h1>My YNHD (Yeonhui-dong)</h1>
     </div>
 
     <div class="navbar-center">
@@ -163,8 +179,19 @@
     </div>
   </div>
 
-  <div class="threewrapper"></div>
+  <div class="threewrapper" id="three-container"></div>
 
-  <script type="module" src="main.js"></script>
+  <div class="text-wrapper">
+    <h1>My YNHD (Yeonhui-dong)</h1>
+    <h2>
+      “My YNHD (Yeonhui-dong)” focuses on Yeonhui-dong, a quiet neighborhood in Seoul that exists between city and suburb. Located between the lively districts of Hongdae and Sinchon, Yeonhui-dong is defined not by noise or spectacle, but by its narrow alleys, low-rise homes, and small, local shops that support a slower, more grounded pace of life. <br><br>
+
+      This project explores the atmosphere and emotional texture of the neighborhood through manipulated photographs and spatial studies, focusing on themes of mood, memory, and quiet transition. Rather than offering a direct representation, the work serves as a personal interpretation, a reflection on how everyday spaces shape our sense of belonging and identity. <br><br>
+
+      My YNHD invites viewers to consider how subtle urban environments can hold meaning and nostalgia.
+    </h2>
+  </div>
+
+  <script type="module" src="1.js"></script>
 </body>
 </html>
